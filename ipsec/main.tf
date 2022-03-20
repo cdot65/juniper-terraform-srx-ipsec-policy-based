@@ -16,7 +16,7 @@ resource "junos-ipsec-policy-based_SecurityIkeGatewayName" "ike_gateway_name" {
 resource "junos-ipsec-policy-based_SecurityIkeGatewayAddress" "ike_gateway_address" {
   resource_name = var.apply_group_name
   name          = var.ike_gateway_name
-  address       = "56.0.0.1"
+  address       = var.ike_gateway_address
 }
 
 resource "junos-ipsec-policy-based_SecurityIkeGatewayIke__Policy" "ike_gateway_policy" {
@@ -28,7 +28,7 @@ resource "junos-ipsec-policy-based_SecurityIkeGatewayIke__Policy" "ike_gateway_p
 resource "junos-ipsec-policy-based_SecurityIkeGatewayExternal__Interface" "ike_gateway_ext_iface" {
   resource_name       = var.apply_group_name
   name                = var.ike_gateway_name
-  external__interface = "ge-0/0/0.0"
+  external__interface = var.ike_gateway_ext_iface
 }
 
 // IKE proposals
@@ -40,37 +40,37 @@ resource "junos-ipsec-policy-based_SecurityIkeProposalName" "ike_proposal_name" 
 resource "junos-ipsec-policy-based_SecurityIkeProposalAuthentication__Algorithm" "ike_proposal_auth_alg" {
   resource_name             = var.apply_group_name
   name                      = var.ike_proposal_name
-  authentication__algorithm = "sha-256"
+  authentication__algorithm = var.ike_proposal_auth_alg
 }
 
 resource "junos-ipsec-policy-based_SecurityIkeProposalAuthentication__Method" "ike_proposal_auth_method" {
   resource_name          = var.apply_group_name
   name                   = var.ike_proposal_name
-  authentication__method = "pre-shared-keys"
+  authentication__method = var.ike_proposal_auth_method
 }
 
 resource "junos-ipsec-policy-based_SecurityIkeProposalDescription" "ike_proposal_description" {
   resource_name = var.apply_group_name
   name          = var.ike_proposal_name
-  description   = "DH14-aes-128-sha-256"
+  description   = var.ike_proposal_description
 }
 
 resource "junos-ipsec-policy-based_SecurityIkeProposalDh__Group" "ike_proposal_dhgroup" {
   resource_name = var.apply_group_name
   name          = var.ike_proposal_name
-  dh__group     = "group14"
+  dh__group     = var.ike_proposal_dhgroup
 }
 
 resource "junos-ipsec-policy-based_SecurityIkeProposalEncryption__Algorithm" "ike_proposal_enc_alg" {
   resource_name         = var.apply_group_name
   name                  = var.ike_proposal_name
-  encryption__algorithm = "aes-128-cbc"
+  encryption__algorithm = var.ike_proposal_enc_alg
 }
 
 resource "junos-ipsec-policy-based_SecurityIkeProposalLifetime__Seconds" "ike_proposal_lifetime" {
   resource_name     = var.apply_group_name
   name              = var.ike_proposal_name
-  lifetime__seconds = "1000"
+  lifetime__seconds = var.ike_proposal_lifetime
 }
 
 // IKE policies
@@ -82,19 +82,19 @@ resource "junos-ipsec-policy-based_SecurityIkePolicyName" "ike_policy_name" {
 resource "junos-ipsec-policy-based_SecurityIkePolicyDescription" "ike_policy_description" {
   resource_name = var.apply_group_name
   name          = var.ike_policy_name
-  description   = "This is an IKE policy description"
+  description   = var.ike_policy_description
 }
 
 resource "junos-ipsec-policy-based_SecurityIkePolicyMode" "ike_policy_mode" {
   resource_name = var.apply_group_name
   name          = var.ike_policy_name
-  mode          = "main"
+  mode          = var.ike_policy_mode
 }
 
 resource "junos-ipsec-policy-based_SecurityIkePolicyPre__Shared__KeyAscii__Text" "ike_policy_preshared" {
   resource_name = var.apply_group_name
   name          = var.ike_policy_name
-  ascii__text   = "juniper123"
+  ascii__text   = var.ike_policy_preshared
   lifecycle {
     ignore_changes = [
       ascii__text,
