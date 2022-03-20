@@ -5,25 +5,94 @@ variable "apply_group_name" {
   default     = "cdot65_ipsec"
 }
 
-// IKE
+// IKE gateway
+variable "ike_gateway_name" {
+  type        = string
+  description = "Name of our IKE gateway"
+  default     = "cdot65_ike_gateway"
+}
 
+variable "ike_gateway_address" {
+  type        = string
+  description = "Address of our IKE gateway peer"
+  default     = "56.0.0.1"
+}
+
+variable "ike_gateway_ext_iface" {
+  type        = string
+  description = "External interface facing our IKE gateway peer"
+  default     = "ge-0/0/0.0"
+}
+
+// IKE proposal
 variable "ike_proposal_name" {
   type        = string
   description = "Name of our IKE proposal"
   default     = "cdot65_ike_proposal"
 }
 
+variable "ike_proposal_auth_alg" {
+  type        = string
+  description = "Authentication algorithm for IKE proposal"
+  default     = "sha-256"
+}
+
+variable "ike_proposal_auth_method" {
+  type        = string
+  description = "Authentication method for IKE proposal"
+  default     = "pre-shared-keys"
+}
+
+variable "ike_proposal_description" {
+  type        = string
+  description = "Description of our IKE proposal"
+  default     = "DH14-aes-128-sha-256"
+}
+
+variable "ike_proposal_dhgroup" {
+  type        = string
+  description = "Diffe Helman IKE proposal"
+  default     = "group14"
+}
+
+variable "ike_proposal_enc_alg" {
+  type        = string
+  description = "Encryption Algorithm for IKE proposal"
+  default     = "aes-128-cbc"
+}
+
+variable "ike_proposal_lifetime" {
+  type        = string
+  description = "Lifetime for IKE proposal"
+  default     = "1000"
+}
+
+// IKE policy
 variable "ike_policy_name" {
   type        = string
   description = "Name of our IKE policy"
   default     = "cdot65_ike_policy"
 }
 
-variable "ike_gateway_name" {
+variable "ike_policy_description" {
   type        = string
-  description = "Name of our IKE gateway"
-  default     = "cdot65_ike_gateway"
+  description = "Description of our IKE policy"
+  default     = "This is an IKE policy description"
 }
+
+variable "ike_policy_mode" {
+  type        = string
+  description = "Policy IKE mode"
+  default     = "main"
+}
+
+variable "ike_policy_preshared" {
+  type        = string
+  description = "Preshared Key"
+  default     = "juniper123"
+}
+
+
 
 
 // Address Book 1

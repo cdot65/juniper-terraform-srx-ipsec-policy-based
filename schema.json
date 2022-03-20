@@ -1,7 +1,7 @@
 {
   "format_version": "1.0",
   "provider_schemas": {
-    "registry.terraform.io/cdot65/junos-ipsec": {
+    "registry.terraform.io/cdot65/junos-ipsec-policy-based": {
       "provider": {
         "version": 0,
         "block": {
@@ -36,7 +36,7 @@
         }
       },
       "resource_schemas": {
-        "junos-ipsec_SecurityAddress__BookAddressIp__Prefix": {
+        "junos-ipsec-policy-based_SecurityAddress__BookAddressIp__Prefix": {
           "version": 0,
           "block": {
             "attributes": {
@@ -73,7 +73,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityAddress__BookAddressName": {
+        "junos-ipsec-policy-based_SecurityAddress__BookAddressName": {
           "version": 0,
           "block": {
             "attributes": {
@@ -104,7 +104,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityAddress__BookAttachZoneName": {
+        "junos-ipsec-policy-based_SecurityAddress__BookAttachZoneName": {
           "version": 0,
           "block": {
             "attributes": {
@@ -135,7 +135,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityAddress__BookName": {
+        "junos-ipsec-policy-based_SecurityAddress__BookName": {
           "version": 0,
           "block": {
             "attributes": {
@@ -160,7 +160,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityFlowTcp__MssIpsec__VpnMss": {
+        "junos-ipsec-policy-based_SecurityFlowTcp__MssIpsec__VpnMss": {
           "version": 0,
           "block": {
             "attributes": {
@@ -185,10 +185,16 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecPolicyName": {
+        "junos-ipsec-policy-based_SecurityIkeGatewayAddress": {
           "version": 0,
           "block": {
             "attributes": {
+              "address": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_gateway. Addresses or hostnames of peer:1 primary, upto 4 backups",
+                "description_kind": "plain",
+                "optional": true
+              },
               "id": {
                 "type": "string",
                 "description_kind": "plain",
@@ -197,7 +203,7 @@
               },
               "name": {
                 "type": "string",
-                "description": "xpath is: config.Groups.V_policy. Name of the IPSec policy",
+                "description": "xpath is: config.Groups.V_gateway",
                 "description_kind": "plain",
                 "optional": true
               },
@@ -210,7 +216,212 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecPolicyProposals": {
+        "junos-ipsec-policy-based_SecurityIkeGatewayExternal__Interface": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "external__interface": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_gateway. External interface for IKE negotiations",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_gateway",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkeGatewayIke__Policy": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "ike__policy": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_gateway. Name of the IKE policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_gateway",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkeGatewayName": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_gateway. Label for the remote (peer) gateway",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkePolicyDescription": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "description": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy. Text description of IKE policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkePolicyMode": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "mode": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy. Define the IKE mode for Phase 1",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkePolicyName": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy. Name of policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkePolicyPre__Shared__KeyAscii__Text": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "ascii__text": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_pre__shared__key. Format as text",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkePolicyProposals": {
           "version": 0,
           "block": {
             "attributes": {
@@ -241,7 +452,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecProposalAuthentication__Algorithm": {
+        "junos-ipsec-policy-based_SecurityIkeProposalAuthentication__Algorithm": {
           "version": 0,
           "block": {
             "attributes": {
@@ -272,13 +483,13 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecProposalDescription": {
+        "junos-ipsec-policy-based_SecurityIkeProposalAuthentication__Method": {
           "version": 0,
           "block": {
             "attributes": {
-              "description": {
+              "authentication__method": {
                 "type": "string",
-                "description": "xpath is: config.Groups.V_proposal. Text description of IPSec proposal",
+                "description": "xpath is: config.Groups.V_proposal. Define authentication method",
                 "description_kind": "plain",
                 "optional": true
               },
@@ -303,7 +514,69 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecProposalEncryption__Algorithm": {
+        "junos-ipsec-policy-based_SecurityIkeProposalDescription": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "description": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal. Text description of IKE proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkeProposalDh__Group": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "dh__group": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal. Define Diffie-Hellman group",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkeProposalEncryption__Algorithm": {
           "version": 0,
           "block": {
             "attributes": {
@@ -334,7 +607,212 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecProposalName": {
+        "junos-ipsec-policy-based_SecurityIkeProposalLifetime__Seconds": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "lifetime__seconds": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal. Lifetime, in seconds",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIkeProposalName": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal. Name of the IKE proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIpsecPolicyName": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy. Name of the IPSec policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIpsecPolicyProposals": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "proposals": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy. Name of the proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIpsecProposalAuthentication__Algorithm": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "authentication__algorithm": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal. Define authentication algorithm",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIpsecProposalDescription": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "description": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal. Text description of IPSec proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIpsecProposalEncryption__Algorithm": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "encryption__algorithm": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal. Define encryption algorithm",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_proposal",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityIpsecProposalName": {
           "version": 0,
           "block": {
             "attributes": {
@@ -359,7 +837,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecProposalProtocol": {
+        "junos-ipsec-policy-based_SecurityIpsecProposalProtocol": {
           "version": 0,
           "block": {
             "attributes": {
@@ -390,7 +868,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecVpnEstablish__Tunnels": {
+        "junos-ipsec-policy-based_SecurityIpsecVpnEstablish__Tunnels": {
           "version": 0,
           "block": {
             "attributes": {
@@ -421,7 +899,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecVpnIkeGateway": {
+        "junos-ipsec-policy-based_SecurityIpsecVpnIkeGateway": {
           "version": 0,
           "block": {
             "attributes": {
@@ -452,7 +930,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecVpnIkeIpsec__Policy": {
+        "junos-ipsec-policy-based_SecurityIpsecVpnIkeIpsec__Policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -483,7 +961,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_SecurityIpsecVpnName": {
+        "junos-ipsec-policy-based_SecurityIpsecVpnName": {
           "version": 0,
           "block": {
             "attributes": {
@@ -508,7 +986,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_commit": {
+        "junos-ipsec-policy-based_commit": {
           "version": 0,
           "block": {
             "attributes": {
@@ -527,7 +1005,7 @@
             "description_kind": "plain"
           }
         },
-        "junos-ipsec_destroycommit": {
+        "junos-ipsec-policy-based_destroycommit": {
           "version": 0,
           "block": {
             "attributes": {
