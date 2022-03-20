@@ -1,0 +1,9 @@
+.terraform.lock.hcl
+enterprise.tfplan
+terraform.tfstate
+.terraform/modules/modules.json
+.terraform/providers/registry.terraform.io/cdot65/junos-ipsec/0.0.1/linux_amd64/terraform-provider-junos-ipsec_v0.0.1
+.terraform/providers/registry.terraform.io/cdot65/junos-ipsec/0.0.1/linux_amd64/README.md
+enterprise-nx01.conf
+terraform.tfstate.backup
+.terraform/providers/registry.terraform.io/cdot65/junos-ipsec/0.0.2/linux_amd64/terraform-provider-junos-ipsec_v0.0.2
