@@ -1,10 +1,12 @@
-# Juniper Terraform Example: IPsec VPNs
+# Juniper Terraform Example: Policy based IPsec VPN
 
 [![N|Solid](https://raw.githubusercontent.com/cdot65/juniper-terraform-srx/dev/site/content/assets/images/topology.png)](https://juniper.net/)
 
 ## Overview
 
 The goal of this project is to provide an example method to interact with Juniper SRX products with Terraform.
+
+This project will build a policy-based VPN on a Juniper SRX firewall
 
 ## 📋 Terraform version compatibility
 
