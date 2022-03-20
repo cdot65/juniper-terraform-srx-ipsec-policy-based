@@ -1,13 +1,13 @@
 terraform {
   required_providers {
-    junos-ipsec = {
-      source  = "cdot65/junos-ipsec"
-      version = "0.0.2"
+    junos-ipsec-policy-based = {
+      source  = "cdot65/junos-ipsec-policy-based"
+      version = "0.0.1"
     }
   }
 }
 
-provider "junos-ipsec" {
+provider "junos-ipsec-policy-based" {
   host     = var.juniper_host_name
   port     = var.juniper_ssh_port
   sshkey   = var.juniper_ssh_key
@@ -15,17 +15,17 @@ provider "junos-ipsec" {
   password = var.juniper_user_password
 }
 
-module "ipsec" {
+module "ipsec-policy-based" {
   source     = "./ipsec"
-  providers  = { junos-ipsec = junos-ipsec }
-  depends_on = [junos-ipsec_destroycommit.commit-main]
+  providers  = { junos-ipsec-policy-based = junos-ipsec-policy-based }
+  depends_on = [junos-ipsec-policy-based_destroycommit.commit-main]
 }
 
-resource "junos-ipsec_commit" "commit-main" {
+resource "junos-ipsec-policy-based_commit" "commit-main" {
   resource_name = "commit"
-  depends_on    = [module.ipsec]
+  depends_on    = [module.ipsec-policy-based]
 }
 
-resource "junos-ipsec_destroycommit" "commit-main" {
+resource "junos-ipsec-policy-based_destroycommit" "commit-main" {
   resource_name = "destroycommit"
 }
