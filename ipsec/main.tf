@@ -2,7 +2,7 @@ terraform {
   required_providers {
     junos-ipsec-policy-based = {
       source  = "cdot65/junos-ipsec-policy-based"
-      version = "0.0.1"
+      version = "0.0.3"
     }
   }
 }
@@ -232,4 +232,104 @@ resource "junos-ipsec-policy-based_SecurityIpsecVpnIkeIpsec__Policy" "ipsec_vpn_
   resource_name = var.apply_group_name
   name          = var.ipsec_vpn_name
   ipsec__policy = var.ipsec_vpn_policy_name
+}
+
+// Security Policy 1 from LAN to WAN
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyName" "sec_pol_1_name" {
+  resource_name = var.apply_group_name
+  name          = var.sec_pol_1_name
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyFrom__Zone__Name" "sec_pol_1_from_zone" {
+  resource_name    = var.apply_group_name
+  from__zone__name = var.sec_pol_1_from_zone
+  to__zone__name   = var.sec_pol_1_to_zone
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyTo__Zone__Name" "sec_pol_1_to_zone" {
+  resource_name    = var.apply_group_name
+  from__zone__name = var.sec_pol_1_from_zone
+  to__zone__name   = var.sec_pol_1_to_zone
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyMatchDestination__Address" "sec_pol_1_match_dst_address" {
+  resource_name        = var.apply_group_name
+  name                 = var.sec_pol_1_name
+  from__zone__name     = var.sec_pol_1_from_zone
+  to__zone__name       = var.sec_pol_1_to_zone
+  destination__address = var.sec_pol_1_match_dst_address
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyMatchSource__Address" "sec_pol_1_match_src_address" {
+  resource_name    = var.apply_group_name
+  name             = var.sec_pol_1_name
+  from__zone__name = var.sec_pol_1_from_zone
+  to__zone__name   = var.sec_pol_1_to_zone
+  source__address  = var.sec_pol_1_match_src_address
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyMatchApplication" "sec_pol_1_application" {
+  resource_name    = var.apply_group_name
+  name             = var.sec_pol_1_name
+  from__zone__name = var.sec_pol_1_from_zone
+  to__zone__name   = var.sec_pol_1_to_zone
+  application      = var.sec_pol_1_application
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyThenPermitTunnelIpsec__Vpn" "sec_pol_1_then_tunnel" {
+  resource_name    = var.apply_group_name
+  name             = var.sec_pol_1_name
+  from__zone__name = var.sec_pol_1_from_zone
+  to__zone__name   = var.sec_pol_1_to_zone
+  ipsec__vpn       = var.ipsec_vpn_name
+}
+
+// Security Policy 2 from WAN to LAN
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyName" "sec_pol_2_name" {
+  resource_name = var.apply_group_name
+  name          = var.sec_pol_2_name
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyFrom__Zone__Name" "sec_pol_2_from_zone" {
+  resource_name    = var.apply_group_name
+  from__zone__name = var.sec_pol_2_from_zone
+  to__zone__name   = var.sec_pol_2_to_zone
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyTo__Zone__Name" "sec_pol_2_to_zone" {
+  resource_name    = var.apply_group_name
+  from__zone__name = var.sec_pol_2_from_zone
+  to__zone__name   = var.sec_pol_2_to_zone
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyMatchDestination__Address" "sec_pol_2_match_dst_address" {
+  resource_name        = var.apply_group_name
+  name                 = var.sec_pol_2_name
+  from__zone__name     = var.sec_pol_2_from_zone
+  to__zone__name       = var.sec_pol_2_to_zone
+  destination__address = var.sec_pol_2_match_dst_address
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyMatchSource__Address" "sec_pol_2_match_src_address" {
+  resource_name    = var.apply_group_name
+  name             = var.sec_pol_2_name
+  from__zone__name = var.sec_pol_2_from_zone
+  to__zone__name   = var.sec_pol_2_to_zone
+  source__address  = var.sec_pol_2_match_src_address
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyMatchApplication" "sec_pol_2_application" {
+  resource_name    = var.apply_group_name
+  name             = var.sec_pol_2_name
+  from__zone__name = var.sec_pol_2_from_zone
+  to__zone__name   = var.sec_pol_2_to_zone
+  application      = var.sec_pol_2_application
+}
+
+resource "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyThenPermitTunnelIpsec__Vpn" "sec_pol_2_then_tunnel" {
+  resource_name    = var.apply_group_name
+  name             = var.sec_pol_2_name
+  from__zone__name = var.sec_pol_2_from_zone
+  to__zone__name   = var.sec_pol_2_to_zone
+  ipsec__vpn       = var.ipsec_vpn_name
 }

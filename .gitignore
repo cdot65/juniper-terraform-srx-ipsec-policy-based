@@ -10,3 +10,6 @@ terraform.tfstate.backup
 .terraform/providers/registry.terraform.io/cdot65/junos-ipsec/0.0.2/linux_amd64/README.md
 .terraform/providers/registry.terraform.io/cdot65/junos-ipsec-policy-based/0.0.1/linux_amd64/README.md
 .terraform/providers/registry.terraform.io/cdot65/junos-ipsec-policy-based/0.0.1/linux_amd64/terraform-provider-junos-ipsec-policy-based_v0.0.1
+deepspace9.conf
+.terraform/providers/registry.terraform.io/cdot65/junos-ipsec-policy-based/0.0.3/linux_amd64/README.md
+.terraform/providers/registry.terraform.io/cdot65/junos-ipsec-policy-based/0.0.3/linux_amd64/terraform-provider-junos-ipsec-policy-based_v0.0.3

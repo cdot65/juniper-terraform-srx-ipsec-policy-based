@@ -2,7 +2,7 @@ terraform {
   required_providers {
     junos-ipsec-policy-based = {
       source  = "cdot65/junos-ipsec-policy-based"
-      version = "0.0.1"
+      version = "0.0.3"
     }
   }
 }
