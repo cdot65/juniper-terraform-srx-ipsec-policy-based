@@ -202,3 +202,77 @@ variable "ipsec_vpn_establish__tunnels" {
   description = "Knob to turn up tunnels immediately"
   default     = "immediately"
 }
+
+// security policy 1
+variable "sec_pol_1_name" {
+  type        = string
+  description = "Name of our security policy"
+  default     = "VPN"
+}
+
+variable "sec_pol_1_from_zone" {
+  type        = string
+  description = "From zone LAN"
+  default     = "LAN"
+}
+
+variable "sec_pol_1_to_zone" {
+  type        = string
+  description = "To zone WAN"
+  default     = "WAN"
+}
+
+variable "sec_pol_1_match_dst_address" {
+  type        = string
+  description = "Match traffic destined to cdot65_address2"
+  default     = "cdot65_address2"
+}
+
+variable "sec_pol_1_match_src_address" {
+  type        = string
+  description = "Match traffic sourced from cdot65_address1"
+  default     = "cdot65_address1"
+}
+
+variable "sec_pol_1_application" {
+  type        = string
+  description = "Match any application"
+  default     = "any"
+}
+
+// security policy 2
+variable "sec_pol_2_name" {
+  type        = string
+  description = "Name of our security policy"
+  default     = "VPN"
+}
+
+variable "sec_pol_2_from_zone" {
+  type        = string
+  description = "From zone WAN"
+  default     = "WAN"
+}
+
+variable "sec_pol_2_to_zone" {
+  type        = string
+  description = "To zone LAN"
+  default     = "LAN"
+}
+
+variable "sec_pol_2_match_dst_address" {
+  type        = string
+  description = "Match traffic destined to cdot65_address1"
+  default     = "cdot65_address1"
+}
+
+variable "sec_pol_2_match_src_address" {
+  type        = string
+  description = "Match traffic sourced from cdot65_address2"
+  default     = "cdot65_address2"
+}
+
+variable "sec_pol_2_application" {
+  type        = string
+  description = "Match any application"
+  default     = "any"
+}

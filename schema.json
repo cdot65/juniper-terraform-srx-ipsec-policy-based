@@ -986,6 +986,277 @@
             "description_kind": "plain"
           }
         },
+        "junos-ipsec-policy-based_SecurityPoliciesPolicyFrom__Zone__Name": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "from__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy. Source zone",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              },
+              "to__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyMatchApplication": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "application": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_policy__1.V_match. ",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "from__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_policy__1",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              },
+              "to__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyMatchDestination__Address": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "destination__address": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_policy__1.V_match. ",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "from__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_policy__1",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              },
+              "to__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyMatchSource__Address": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "from__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_policy__1",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              },
+              "source__address": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_policy__1.V_match. ",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "to__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyName": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "from__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_policy__1. Security policy name",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              },
+              "to__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityPoliciesPolicyPolicyThenPermitTunnelIpsec__Vpn": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "from__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "ipsec__vpn": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_policy__1.V_tunnel. Enable VPN with name",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy.V_policy__1",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              },
+              "to__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
+        "junos-ipsec-policy-based_SecurityPoliciesPolicyTo__Zone__Name": {
+          "version": 0,
+          "block": {
+            "attributes": {
+              "from__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy",
+                "description_kind": "plain",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "description_kind": "plain",
+                "optional": true,
+                "computed": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description_kind": "plain",
+                "required": true
+              },
+              "to__zone__name": {
+                "type": "string",
+                "description": "xpath is: config.Groups.V_policy. Destination zone",
+                "description_kind": "plain",
+                "optional": true
+              }
+            },
+            "description_kind": "plain"
+          }
+        },
         "junos-ipsec-policy-based_commit": {
           "version": 0,
           "block": {
