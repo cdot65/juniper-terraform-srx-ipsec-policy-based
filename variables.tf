@@ -1,9 +1,3 @@
-variable "juniper_host_name" {
-  type        = string
-  description = "Host name or IP to SSH into"
-  default     = "192.168.105.196"
-}
-
 variable "juniper_user_name" {
   type        = string
   description = "Username to SSH into the Juniper device"
