@@ -21,7 +21,7 @@ module "ipsec-policy-based" {
 
   // IKE gateway
   ike_gateway_name      = "cdot65_ike_gateway"
-  ike_gateway_address   = "56.0.0.2"
+  ike_gateway_address   = "56.0.0.1"
   ike_gateway_ext_iface = "ge-0/0/0.0"
 
   // IKE proposal
