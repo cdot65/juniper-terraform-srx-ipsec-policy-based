@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "junos-ipsec-policy-based" {
-  host     = "192.168.105.196"
+  host     = "192.168.105.10"
   port     = var.juniper_ssh_port
   sshkey   = var.juniper_ssh_key
   username = var.juniper_user_name
